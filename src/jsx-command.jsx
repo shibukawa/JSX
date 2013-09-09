@@ -46,7 +46,7 @@ class JSXCommand {
 			"Options:\n" +
 			"  --add-search-path path     adds a path to library search paths\n" +
 			"  --executable RUNENV        adds launcher to call _Main.main(:string[]):void\n" +
-			"                             supported RUNENV is node, commonjs and web.\n" +
+			"                             supported RUNENV is node, commonjs, web and raw.\n" +
 			"  --run                      runs _Main.main(:string[]):void after compiling\n" +
 			"  --test                     runs _Test#test*():void after compiling\n" +
 			"  --output file              output file (default:stdout)\n" +
@@ -268,6 +268,8 @@ class JSXCommand {
 				case "commonjs": // implies JavaScriptEmitter
 					break;
 				case "node": // implies JavaScriptEmitter
+					break;
+				case "raw": // implies JavaScriptEmitter
 					break;
 				default:
 					platform.error("unknown executable type (node|web)");
